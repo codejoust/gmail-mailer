@@ -1,0 +1,4 @@
+email.ini
+*.pyc
+.DS_Store
+settings.txt
