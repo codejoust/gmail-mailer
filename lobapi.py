@@ -24,6 +24,7 @@ def deal_with_email_data(subject, frm, lines):
 	    objects = obj
 	)
 	return letter
+	# letter['url']
 
 def createAddress(address):
 	addr = usaddress.parse(address)

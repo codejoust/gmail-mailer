@@ -6,7 +6,7 @@ import ConfigParser
 config = ConfigParser.ConfigParser()
 config.read('email.ini')
 
-def send_email(to, frm, letter):
+def send_email(to, letter):
     sender = 'lobthat@gmail.com'
     receivers = [to[to.find('<'):-1]]
 
@@ -14,9 +14,12 @@ def send_email(to, frm, letter):
     To: %s
     Subject: Sent letter!
 
-    Just a confirmation that your letter has been sent at %s
+    Just a confirmation that your letter has been sent at %s.
 
-    """ % (to, letter['url'])
+
+    Thanks your using lobthat@gmail.com!
+
+    """ % (to, letter.url)
 
     try:
        server = smtplib.SMTP(config.get('server','smtp'), 587)

@@ -18,7 +18,6 @@ M.user(config.get('login', 'username'))
 M.pass_(config.get('login', 'password'))
 
 def getNumMessages():
-    if (len(M.list()) == 0): return 0
     try:
         return len(M.list()[1]) + 1
     except:
@@ -51,7 +50,7 @@ def fetchMessages():
             print output
             print 'sending content'
             letter = lobapi.deal_with_email_data(b['subject'], b['from'], ''.join(output))
-            sendemail.send_email(b['from'], '' letter)
+            sendemail.send_email(b['from'], letter)
         print 'deleting message'
         M.dele(indx+1)
 
