@@ -17,14 +17,12 @@ def deal_with_email_data(subject, frm, lines):
 	obj = createObject(object_message)
 	address_from = lob.Address.list(count=2).data
 
-	letter = lob.Job.create(
+	return lob.Job.create(
 	    name='Thankyou first!',
 	    to_address=address,
 	    from_address='adr_5b0a9530c75c5bd7',
 	    objects = obj
 	)
-	return letter
-	# letter['url']
 
 def createAddress(address):
 	addr = usaddress.parse(address)
